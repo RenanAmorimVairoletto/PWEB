@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 9 - Objetos</title>
+
+    <script>
+          var Aluno = new Object();
+          Aluno.RA = 586;
+          Aluno.Nome = "Renan de Amorim Vairoletto";
+
+          alert("Aluno: " + Aluno.Nome + " RA: " + Aluno.RA);
+    </script>
+
+    <script>
+        function Retangulo(x, y){
+            this.x = x;
+            this.y = y;
+
+            this.calcArea = function(){
+                return this.x * this.y;
+            }
+        }
+
+        var ret = new Retangulo(4, 6);
+        alert("Área do retângulo: " + ret.calcArea());
+    </script>
+
+    <script>
+        function Conta(){
+            var nome;
+            var banco;
+            var numConta;
+            var saldo;
+
+            this.getNome = function(){
+                return nome;
+            }
+
+            this.setDados = function(nome, banco, numConta, saldo){
+                this.nome = nome;
+                this.banco = banco;
+                this.numConta = numConta;
+                this.saldo = saldo;
+            }
+        }
+
+        function ContaCorrente(){
+            var saldoEspecial;
+
+            this.getSaldoEspecial = function(){
+                return saldoEspecial;
+            }
+
+            this.setSaldoEspecial = function(saldoEspecial){
+                this.saldoEspecial = saldoEspecial;
+            }
+        }
+
+        function ContaPoupanca(){
+            var poupancaComJuros;
+
+            this.getPoupancaComJuros = function(){
+                return poupancaComJuros;
+            }
+
+            this.setPoupancaComJuros = function(poupancaComJuros){
+                this.poupancaComJuros = poupancaComJuros;
+            }
+        }
+
+        ContaCorrente.prototype = new Conta();
+        ContaPoupanca.prototype = new Conta();
+
+        nContaCorrente = new ContaCorrente();
+        nContaCorrente.setDados("Cliente Corrente", "Bradesco", 5, 12);
+        nContaCorrente.setSaldoEspecial(nContaCorrente.saldo + 3);
+        alert("Dados da conta: " + nContaCorrente.nome + ", " + nContaCorrente.banco + ", Conta nº " + nContaCorrente.numConta + ", Saldo: " + nContaCorrente.saldo + ", Saldo especial: " + nContaCorrente.saldoEspecial)
+    
+        nContaPoupanca = new ContaPoupanca();
+        nContaPoupanca.setDados("Cliente Poupança", "Santander", 8, 16);
+        nContaPoupanca.setPoupancaComJuros(nContaPoupanca.saldo + 5);
+        alert("Dados da conta: " + nContaPoupanca.nome + ", " + nContaPoupanca.banco + ", Conta nº " + nContaPoupanca.numConta + ", Saldo: " + nContaPoupanca.saldo + ", Poupança com juros: " + nContaPoupanca.poupancaComJuros)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
