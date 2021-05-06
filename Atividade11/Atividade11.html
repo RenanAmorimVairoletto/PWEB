@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 11</title>
+    <script>
+
+        function tornarMaiusculo() {
+            document.forms.formulario1.elements[0].value = document.forms.formulario1.elements[0].value.toUpperCase();
+        }
+
+        function tornarMinusculo() {
+            document.forms.formulario1.elements[0].value = document.forms.formulario1.elements[0].value.toLowerCase();
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <form action="Atividade11.html" method="POST" name="formulario1" id="formulario1">
+
+        <div id="principal" width=200 heigth=200 align=center>
+            Texto:
+            <input name="idNome" type="text" id="idNome" size="52" maxlength="150">
+            <br>
+            <br> Maiúscula :
+            <input name="idcheck" type="radio" onclick="return tornarMaiusculo();">
+            <br>
+            <br> Minúscula :
+            <input name="idcheck" type="radio" onclick="return tornarMinusculo();">
+            <br>
+        </div>
+    </form>
+</body>
+
+</html>
